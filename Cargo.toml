@@ -1,0 +1,11 @@
+[package]
+name = "zsh_pinyin_comp"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+pinyin = "0.9"
+fuzzy-matcher = "*"
+shellexpand = "2.1.2"
+
