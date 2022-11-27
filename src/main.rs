@@ -39,7 +39,6 @@ fn main() {
         Some(item) => item.to_str().unwrap(),
         None => "",
     };
-    let mut ret: Vec<String> = vec![];
     for entry in parent.read_dir().expect("Read dir failed") {
         if let Ok(entry) = entry {
             if let Some(entry_fn) = entry.path().file_name() {
@@ -49,13 +48,9 @@ fn main() {
                     .is_some()
                     && (!dironly || entry.path().is_dir())
                 {
-                    ret.push(String::from(entry_fn));
+                    println!("{}", parent.join(entry_fn).display());
                 }
             }
         }
-    }
-
-    for item in ret {
-        println!("{}", item);
     }
 }
